@@ -1,99 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grocery Delivery</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        .container {
-            margin: 20px auto;
-            max-width: 800px;
-        }
-        .product {
-            display: inline-block;
-            margin: 15px;
-            text-align: center;
-        }
-        .product img {
-            width: 150px;
-            height: 150px;
-            cursor: pointer;
-        }
-        .cart {
-            margin-top: 20px;
-        }
-        .cart-item {
-            margin: 5px 0;
-        }
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        input {
-            padding: 10px;
-            font-size: 14px;
-            width: 90%;
-            margin-bottom: 15px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Welcome to Grocery Delivery</h1>
-    <div class="container">
-        <div id="products">
-            <div class="product" onclick="addToCart('Apples')">
-                <img src="https://via.placeholder.com/150" alt="Apples">
-                <p>Apples</p>
-            </div>
-            <div class="product" onclick="addToCart('Bananas')">
-                <img src="https://via.placeholder.com/150" alt="Bananas">
-                <p>Bananas</p>
-            </div>
-            <div class="product" onclick="addToCart('Tomatoes')">
-                <img src="https://via.placeholder.com/150" alt="Tomatoes">
-                <p>Tomatoes</p>
-            </div>
-        </div>
-        <div id="cart" class="cart">
-            <h2>Your Cart</h2>
-            <div id="cart-items"></div>
-            <input type="text" id="address" placeholder="Enter your delivery address">
-            <br>
-            <button onclick="placeOrder()">Place Order</button>
-        </div>
-    </div>
-
-    <script>
-        const cart = [];
-
-        function addToCart(product) {
-            cart.push(product);
-            document.getElementById('cart-items').innerHTML = cart.map(item => `<div class="cart-item">${item}</div>`).join('');
-        }
-
-        function placeOrder() {
-            const address = document.getElementById('address').value;
-            if (!address) {
-                alert('Please enter a delivery address!');
-                return;
-            }
-            const message = `Order Details:\nProducts: ${cart.join(', ')}\nDelivery Address: ${address}`;
-            const whatsappLink = `https://wa.me/+917569226048?text=${encodeURIComponent(message)}`;
-            window.open(whatsappLink, '_blank');
-        }
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
